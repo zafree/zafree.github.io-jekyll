@@ -1,0 +1,295 @@
+---
+layout: default
+title: Discover
+permalink: /discover/
+weight : 1
+---
+
+<section class="profile b-b img-bg img-white" style="background-image: url({{ site.baseurl }}/imgs/c1.jpg)">
+  <div class="item">
+    <div class="center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h1 class="text-5x font-normal">Discover</h1>
+            <div class="line w-xs b-b b-2x b-primary m-auto"></div>
+            <p class="text-xl m-b-xl">Fun, Cute Cat, Panic Zone</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center p-v-xxl">
+        <div class="thumb-xl img-circle">
+					<img src="http://www.gravatar.com/avatar/{{ site.gravatar }}?s=330">
+				</div>
+        <p class="h2 l-h-3x font-normal m-v-xl">
+          আমি অনেক মেধাবী ছাত্র ছিলাম। রেজাল্টের কথা চিন্তা করলে বাপের মাইর ছাড়া আর তেমন কিছু মনে পরে না।
+        </p>
+        <p class="text-lg m-b-xl">
+          — আমার সম্পর্কে, <small>সত্যি কথা</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light p-v-xxl p-b-md">
+	<div class="container">
+		<div class="row m-b-lg">
+			<div class="col-sm-8 col-sm-offset-2 p-v-xl text-center">
+				<h1 class="font-thin l-h-3x">Glorious Aging &amp; Brain Dumps</h1>
+			</div>
+		</div>
+
+		<div class="row m-b-xxl pos-rlt">
+			<div class="bamboo"></div>
+
+			<div class="col-sm-5">
+				<div class="clear m-b">
+						<small class="pull-right text-muted">Aging</small>
+						<span class="clear text-ellipsis font-bold">Job History</span>
+				</div>
+				<div class="list-group list-group-lg b-nones">
+					<a herf="" class="list-group-item clearfix">
+						<span class="clear">
+            		<small class="pull-right text-muted">10 months &amp; run</small>
+								<small class="clear text-muted text-ellipsis">13 November 2014 - Continue</small>
+              	<span class="clear font-bold m-t-sm">Creative Lead at Incepsys Ltd</span>
+          	</span>
+		      </a>
+					<a herf="" class="list-group-item clearfix">
+						<span class="clear">
+            		<small class="pull-right text-muted">9 months</small>
+								<small class="clear text-muted text-ellipsis">01 January 2014 - 30 September 2014</small>
+              	<span class="clear text-ellipsis font-bold m-t-sm">Front End Web Developer at BTCIT</span>
+          	</span>
+		      </a>
+					<a herf="" class="list-group-item clearfix">
+						<span class="clear">
+            		<small class="pull-right text-muted">2.4 years &amp; run</small>
+								<small class="clear text-muted text-ellipsis">13 May 2013 - Continue</small>
+              	<span class="clear text-ellipsis font-bold m-t-sm">Team Member at Notekhata.com</span>
+          	</span>
+		      </a>
+				</div>
+        <!--
+        <p class="text-right text-sm font-bold">
+					<a href="journal.html">see all...</a>
+				</p>
+        -->
+			</div>
+
+			<div class="col-sm-5 col-sm-offset-2">
+				<div class="clear m-b">
+						<small class="pull-right text-muted">Discover</small>
+						<span class="clear text-ellipsis font-bold">Most Recent</span>
+				</div>
+				<div class="list-group list-group-lg b-nones">
+          {% for post in site.categories.journals limit:3 %}
+					<div class="list-group-item clearfix">
+						<span class="clear">
+            		<small class="pull-right text-muted">{{ post.discover }}</small>
+								<small class="clear text-muted">{{ post.date | date: "%b %-d, %Y" }}</small>
+              	<a class="clear font-bold m-t-sm text-ellipsis"  href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          	</span>
+		      </div>
+          {% endfor %}
+				</div>
+        <p class="text-right text-sm font-bold">
+					<a href="{{ site.baseurl }}/journal">see all dumps...</a>
+				</p>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row m-v-xxl">
+      <div class="col-md-5 col-md-offset-1">
+        <div class="showdown-container">
+          <div class="pos-abt show-zero">
+            <img src="{{ site.baseurl }}/imgs/wp0.jpg" class="img-full" />
+          </div>
+          <div class="pos-abt show-one">
+            <img src="{{ site.baseurl }}/imgs/wp1.jpg" class="img-full" />
+          </div>
+          <div class="pos-abt show-two">
+            <img src="{{ site.baseurl }}/imgs/wp2.jpg" class="img-full" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 m-v-xxl">
+        <div class="bg-light dk m-h-n-xl wrapper-xl m-v-xxl img-bg img-light dk" style="background-image: url({{ site.baseurl }}/imgs/wp.jpg)">
+          <div class="p-h-xxl">
+            <h2>Wordperssians Admin</h2>
+            <p class="text-md m-b-md">
+    					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+    					doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+    					veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    				</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-v-xxl bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center p-v-lg">
+  				<h1 class="l-h-3x m-b-xxl">Meetup, Fun, Gossip, Loving</h1>
+  				<div class="line-xl b-b b-2x w-xs m-auto"></div>
+  				<p class="text-md m-b-xl">
+  					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+  					doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+  					veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+  				</p>
+  			</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<figure>
+  <div class="owl-battle">
+    <img src="{{ site.baseurl }}/imgs/z0a.jpg" class="img-full" />
+    <img src="{{ site.baseurl }}/imgs/z0b.jpg" class="img-full" />
+  </div>
+</figure>
+
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="m-h-n">
+          <div class="owl-battle">
+            <img src="{{ site.baseurl }}/imgs/z1a.jpg" class="img-full" />
+            <img src="{{ site.baseurl }}/imgs/z1b.jpg" class="img-full" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="m-h-n">
+          <div class="owl-battle">
+            <img src="{{ site.baseurl }}/imgs/z2a.jpg" class="img-full" />
+            <img src="{{ site.baseurl }}/imgs/z2b.jpg" class="img-full" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="m-h-n">
+          <div class="owl-battle">
+            <img src="{{ site.baseurl }}/imgs/z3a.jpg" class="img-full" />
+            <img src="{{ site.baseurl }}/imgs/z3b.jpg" class="img-full" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="m-h-n">
+              <div class="owl-battle">
+                <img src="{{ site.baseurl }}/imgs/z4a.jpg" class="img-full" />
+                <img src="{{ site.baseurl }}/imgs/z4b.jpg" class="img-full" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="m-h-n m-t-n-1x">
+              <div class="owl-battle">
+                <img src="{{ site.baseurl }}/imgs/z5a.jpg" class="img-full" />
+                <img src="{{ site.baseurl }}/imgs/z5b.jpg" class="img-full" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center p-v-lg">
+				<h1 class="l-h-3x m-b-xxl">Pieces Lock Up</h1>
+				<div class="line-xl b-b b-2x w-xs m-auto"></div>
+				<p class="text-md m-b-xl">
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+					doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+					veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+				</p>
+			</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 m-b-xxl">
+        <div class="owl-pieces dot-m">
+          <img src="/imgs/piece/c0.jpg" class="img-full" />
+          <img src="/imgs/piece/c1.jpg" class="img-full" />
+          <img src="/imgs/piece/c2.jpg" class="img-full" />
+          <img src="/imgs/piece/c3.jpg" class="img-full" />
+          <img src="/imgs/piece/c0.jpg" class="img-full" />
+          <img src="/imgs/piece/c1.jpg" class="img-full" />
+          <img src="/imgs/piece/c2.jpg" class="img-full" />
+          <img src="/imgs/piece/c3.jpg" class="img-full" />
+          <img src="/imgs/piece/c0.jpg" class="img-full" />
+          <img src="/imgs/piece/c1.jpg" class="img-full" />
+          <img src="/imgs/piece/c2.jpg" class="img-full" />
+          <img src="/imgs/piece/c3.jpg" class="img-full" />
+          <img src="/imgs/piece/c0.jpg" class="img-full" />
+          <img src="/imgs/piece/c1.jpg" class="img-full" />
+          <img src="/imgs/piece/c2.jpg" class="img-full" />
+          <img src="/imgs/piece/c3.jpg" class="img-full" />
+          <img src="/imgs/piece/c0.jpg" class="img-full" />
+          <img src="/imgs/piece/c1.jpg" class="img-full" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row m-v-xxl">
+      <div class="col-md-6 m-v-xxl">
+        <div class="m-v-xxl">
+          <h1>Again &amp; Again...</h1>
+          <p class="text-md m-b-md">
+  					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+  					doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+  					veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+  				</p>
+        </div>
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        <div class="showcircle-container">
+          <div class="pos-abt show-zero">
+            <img src="{{ site.baseurl }}/imgs/b1.jpg" class="img-full img-circle" />
+          </div>
+          <div class="pos-abt show-one">
+            <img src="{{ site.baseurl }}/imgs/b1.jpg" class="img-full img-circle" />
+          </div>
+          <div class="pos-abt show-two">
+            <img src="{{ site.baseurl }}/imgs/b1.jpg" class="img-full img-circle" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<figure>
+  <img src="{{ site.baseurl }}/imgs/d0.jpg" class="img-full" />
+</figure>

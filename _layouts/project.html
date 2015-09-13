@@ -1,0 +1,189 @@
+---
+layout: default
+---
+
+{% if page.previous_in_category %}
+<a class="prev pos-fix block bg-primary w-sm p-h-xl p-v text-right" href="{{page.previous_in_category.url}}">prev</a>
+{% endif %}
+{% if page.next_in_category %}
+<a class="next pos-fix block bg-primary w-sm p-h-xl p-v" href="{{page.next_in_category.url}}">next</a>
+{% endif %}
+
+{% if page.cover %}
+<section class="profile img-bg" style="background-image: url({{ site.baseurl }}/imgs{{ page.url }}cover.{{ page.cover }})">
+{% else %}
+<section class="profile">
+{% endif %}
+</section>
+
+<section class="bg-light p-v-lg">
+  <div class="container">
+    <div class="row m-t m-b-xxl">
+      <div class="col-md-12">
+        <h1 class="p-v-lg m-b-xl b-b">{{ page.title }} <span class="text-lg font-normal">{{ page.service }}</span></h1>
+      </div>
+      <div class="col-sm-5">
+        <h3 class="">The History</h3>
+        <div class="line w-xs b-b"></div>
+        <p class="l-h-2x">
+          {{ page.history }}
+        </p>
+      </div>
+      <div class="col-sm-5 col-sm-offset-2">
+        <h3 class="">The Handicraft</h3>
+        <div class="line w-xs b-b"></div>
+        <p class="l-h-2x">
+          {{ page.handicraft }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if page.eyeshot %}
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">Eyeshot</h5>
+      </div>
+      <div class="col-sm-12 p-v-xxl">
+        <img src="{{ site.baseurl }}/imgs{{ page.url }}eyeshot.{{ page.eyeshot }}" alt="" class="img-full">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.dna %}
+  {% if page.dnaHex %}
+<section class="p-v-xxl" style="background-color: #{{ page.dnaHex }};color: #ffffff">
+  {% elsif page.dnaBg %}
+<section class="p-v-xxl img-bg" style="background-image: url({{ site.baseurl }}/imgs{{ page.url }}dna-bg.{{ page.dnaBg }})">
+  {% else %}
+<section class="p-v-xxl">
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">The DNA</h5>
+      </div>
+      <div class="col-sm-12 p-v-xxl">
+        <img src="{{ site.baseurl }}/imgs{{ page.url }}dna.{{ page.dna }}" alt="" class="img-full">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.colorScheme %}
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">Color Scheme</h5>
+      </div>
+      <div class="col-sm-12 p-v-xxl">
+        <img src="{{ site.baseurl }}/imgs{{ page.url }}color-scheme.{{ page.colorScheme }}" alt="" class="img-full">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.typography %}
+  {% if page.typographyHex %}
+<section class="p-v-xxl" style="background-color: #{{ page.typographyHex }};color: #ffffff">
+  {% elsif page.typographyBg %}
+<section class="p-v-xxl img-bg" style="background-image: url({{ site.baseurl }}/imgs{{ page.url }}typography-bg.{{ page.typographyBg }})">
+  {% else %}
+<section class="p-v-xxl">
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">Typography</h5>
+      </div>
+      <div class="col-sm-12 m-v-xxl">
+        <img src="{{ site.baseurl }}/imgs{{ page.url }}typography.{{ page.typography }}" alt="" class="img-full">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.iconSet %}
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">Icon Set</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.inTheShow %}
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">In The Show</h5>
+      </div>
+      <div class="col-sm-12 m-v-xxl">
+        <img src="{{ site.baseurl }}/imgs{{ page.url }}in-the-show.{{ page.inTheShow }}" alt="" class="img-full">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.webDesign %}
+  {% if page.webDesignHex %}
+<section class="p-v-xxl" style="background-color: #{{ page.webDesignHex }};color: #ffffff">
+  {% elsif page.webDesignBg %}
+<section class="p-v-xxl img-bg" style="background-image: url({{ site.baseurl }}/imgs{{ page.url }}web-design-bg.{{ page.webDesignBg }});color: #ffffff">
+  {% else %}
+<section class="p-v-xxl bg-light">
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="font-thin p-v-md b-b">Web Design</h5>
+      </div>
+      <div class="col-sm-12 m-v-xxl">
+        <img src="{{ site.baseurl }}/imgs{{ page.url }}web-design.{{ page.webDesign }}" alt="" class="img-full">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.clinetReview %}
+<section class="p-v-xxl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center p-v-xxl">
+        {% if page.clientImage %}
+        <div class="thumb-xl img-circle">
+					<img src="{{ site.baseurl }}/imgs{{ page.url }}.mr-client.{{ page.clientImage }}">
+				</div>
+        {% endif %}
+        <p class="h2 l-h-3x font-normal m-v-xl">
+          {{ page.clinetReview }}
+        </p>
+        <p class="text-lg m-b-xl">
+          — {{ page.clientName }}, <small>{{ page.clientRoll }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<div class="clear m-v-xxl p-v-xxl text-center">
+  <span class="text-lg text-muted m-r-md font-sans">Share with</span>
+  <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter" class="m-r-md"><i class="fa fa-twitter fa-2x text-light text-dker"></i></a>
+  <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook" class="m-r-md"><i class="fa fa-facebook fa-2x text-light text-dker"></i></a>
+</div>

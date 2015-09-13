@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% if page.previous_in_category %}
+<a class="prev pos-fix block bg-primary w-sm p-h-xl p-v text-right" href="{{page.previous_in_category.url}}">prev</a>
+{% endif %}
+
+{% if page.next_in_category %}
+<a class="next pos-fix block bg-primary w-sm p-h-xl p-v" href="{{page.next_in_category.url}}">next</a>
+{% endif %}
+
+<section class="bg-white p-v-xxl">
+  <div class="container">
+    <div class="row p-t-xxl m-v-xxl">
+      <div class="col-sm-8 col-sm-offset-2 m-t-xxl">
+        <div class="thumb-sm img-circle">
+          <img src="http://www.gravatar.com/avatar/{{ site.gravatar }}?s=110">
+        </div>
+        <h1 class="">{{ page.title }}</h1>
+        <div class="font-sans text-muted m-t-lg m-b-xxl">
+          <div class="small">
+            <i class="fa fa-clock-o m-r-xs"></i> {{ page.date | date: "%b %-d, %Y" }}
+          </div>
+        </div>
+
+        <div class="line w-xs b-b b-2x"></div>
+        <!--details -->
+        <div class="post-content p-v-xl l-h-2x">
+          {{ content }}
+
+          <div class="clear m-t-xxl p-t-xxl">
+            <span class="text-lg text-muted m-r-md font-sans">Share with</span>
+            <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter" class="m-r-md"><i class="fa fa-twitter fa-2x text-light text-dker"></i></a>
+            <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook" class="m-r-md"><i class="fa fa-facebook fa-2x text-light text-dker"></i></a>
+          </div>
+        </div>
+        <div class="line w-xs b-b b-2x"></div>
+      </div>
+    </div>
+  </div>
+</section>

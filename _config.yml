@@ -1,0 +1,24 @@
+# Site settings
+title:              Zafree
+email:              zafree@live.com
+
+author:             Zafree
+fullname:           Foysal Zafree
+gravatar:           b7e525f3c99cf35dbe137a62de076a44
+
+facebook_username:  zafree
+github_username:    zafree
+
+# Dependencies
+markdown:           kramdown
+highlighter:        pygments
+
+# Permalinks
+permalink:          pretty
+
+# Server
+host:               0.0.0.0
+port:               9001
+baseurl:            # the subpath of your site, e.g. /blog/
+url:                http://zafree.github.io # the base hostname & protocol for your site
+encoding:           UTF-8

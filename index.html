@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<section class="profile b-b" style="background-image: url({{ site.baseurl }}/imgs/p1.jpg)">
+  <div class="item">
+    <div class="center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-1 text-dark">
+            <h1 class="text-5x font-normal">Zafree</h1>
+            <p class="text-xl m-b-xl">Branding &amp; UI Designer</p>
+            <div class="line w-xs b-b b-2x b-primary"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white p-t-xxl">
+  <div class="container">
+    <div class="row m-t m-b-xxl">
+      <div class="col-lg-9 col-lg-offset-1 col-sm-9">
+        <h3 class="m-b-lg text-primary">My Story</h3>
+        <p class="l-h-2x">
+          I work with fun, building web sites and web applications focusing on HTML, SVG, LESS and Javascript.
+          Creating apps with node using grunt, bower, and finally jekyll. I'm also an avid writer, and an author and
+          team member at Notekhata.com
+          <br><br>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+          Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
+          Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered.
+        </p>
+        <div class="line m-t-xxl w-xs b-b b-2x b-primary"></div>
+      </div>
+      <div class="col-lg-1 col-lg-offset-1 col-sm-2 col-sm-offset-1 text-center b-t b-2x b-primary m-t-xl p-t-lg social-links">
+        <a href="https://www.facebook.com/zafree"><i class="fa fa-facebook fa-3x text-light text-dker m-b-md clear"></i></a>
+        <a href="https://dribbble.com/zafree"><i class="fa fa-dribbble fa-3x text-light text-dker m-b-md clear"></i></a>
+        <a href="https://github.com/zafree/"><i class="fa fa-github fa-3x text-light text-dker m-b-md clear"></i></a>
+        <a href="https://www.flickr.com/photos/paniczone/"><i class="fa fa-flickr fa-3x text-light text-dker m-b-md clear"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light p-t-xxl p-b-md">
+  <div class="container">
+    <div class="row m-b-lg">
+      <div class="col-sm-8 col-sm-offset-2 p-v-xl text-center">
+        <h1 class="font-thin l-h-3x">Glorious Aging &amp; Brain Dumps</h1>
+      </div>
+    </div>
+
+    <div class="row m-b-xxl pos-rlt">
+      <div class="bamboo"></div>
+      {% for post in site.categories.journals limit:4 %}
+      {% capture offset %}{% cycle '', 'col-md-offset-2' %}{% endcapture %}
+      <div class="col-md-5 {{ offset }} p-v-xl">
+        <a class="m-b-lg inline text-lg font-bold hover" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} <i class="fa fa-long-arrow-right m-l-xxs"></i></a>
+        <div class="l-h-2x">
+          {{ post.excerpt }}
+        </div>
+        <p class="small m-t-md text-muted"><i class="fa fa-clock-o m-r-xs"></i> {{ post.date | date: "%b %-d, %Y" }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-center font-bold m-b-xxl">
+      <a href="{{ site.baseurl }}/journal">see all dumps</a>
+    </p>
+
+  </div>
+</section>

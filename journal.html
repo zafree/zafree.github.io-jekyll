@@ -1,0 +1,60 @@
+---
+layout: default
+title: Journal
+permalink: /journal/
+weight : 3
+---
+
+<section class="profile b-b img-bg img-white" style="background-image: url({{ site.baseurl }}/imgs/c1.jpg)">
+  <div class="item">
+    <div class="center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h1 class="text-5x font-normal">Aging</h1>
+            <div class="line w-xs b-b b-2x b-primary m-auto"></div>
+            <p class="text-xl m-b-xl">love to do write</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% for post in site.categories.journals %}
+{% capture bg_color %}{% cycle 'bg-white', 'bg-light' %}{% endcapture %}
+<section class="{{ bg_color }} p-t-xxl">
+  <div class="container">
+    <div class="row m-t-lg m-b-xxl">
+      <div class="col-md-8 col-sm-offset-2 text-center">
+        <div class="m-b-xxl">
+          <a class="" href="{{ post.url | prepend: site.baseurl }}">
+            {% if post.attimg %}
+            <img src="{{site.baseurl}}/imgs/journal/{{ post.attimg }}" class="img-full m-b-lg" />
+            {% endif %}
+            <h1 class="text-3x p-b inline">{{ post.title }}</h3>
+            <div class="line-xl w-sm b-b b-2x b-primary m-auto clear"></div>
+          </a>
+          <div class="l-h-2x">
+            {{ post.excerpt }}
+          </div>
+          <div class="font-sans text-muted m-t-xxl">
+            <div class="inline m-r-xl">
+              <a class="text-muted" href="{{site.baseurl}}">
+                <div class="thumb-sm img-circle pull-left">
+                  <img src="http://www.gravatar.com/avatar/{{ site.gravatar }}?s=110">
+                </div>
+                <span class="m-l-sm m-t-sm inline">{{ site.author }}</span>
+              </a>
+            </div>
+            <div class="small inline">
+              <i class="fa fa-clock-o m-r-xs"></i> {{ post.date | date: "%b %-d, %Y" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}

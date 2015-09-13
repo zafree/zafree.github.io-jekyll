@@ -1,0 +1,445 @@
+// - Headroom
+// - Cover
+// - Intro marker
+// - Footer
+// - Hover >> arrow
+// - Profile
+// - Project
+// - Social hover
+
+// Headroom
+.headroom {
+  .navbar-nav > li {
+    margin-left: 20px;
+    margin-right: 20px;
+    > a {
+      padding: 10px 0;
+      border-bottom: 2px solid transparent;
+      .transition(border-bottom 0.2s linear 0s);
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent;
+        border-bottom: 2px solid @brand-primary;
+      }
+    }
+  }
+
+  .transition(all 0.2s linear 0s);
+  // not top
+  &.headroom--not-top {
+    .box-shadow();
+  }
+}
+
+// Cover
+.cover {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.03);
+    z-index: 1;
+  }
+}
+
+
+// Intro marker
+.intro-marker,
+.intro-marker.on:after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 0;
+  .border-radius(50%);
+  .box-sizing(border-box);
+}
+
+.intro-marker {
+  overflow: visible;
+  //cursor: pointer;
+  z-index: 10;
+  .scale(0);
+  .transition-transform(.3s cubic-bezier(.68,-.55,.265,1.55));
+}
+
+.intro-marker.on {
+  .scale(1);
+}
+
+// default marker color
+.intro-marker {
+  background: @brand-primary;
+  &.on:after {
+    content: "";
+    border: 1px solid @brand-primary;
+    background: -webkit-radial-gradient(center center,farthest-side circle,rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary),0) 70%,@brand-primary 100%);
+    background: -moz-radial-gradient(center center,farthest-side circle,rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary),0) 70%,@brand-primary 100%);
+    background: -o-radial-gradient(center center,farthest-side circle,rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary),0) 70%,@brand-primary 100%);
+    background: radial-gradient(center center,farthest-side circle,rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary),0) 70%,@brand-primary 100%);
+    .animation(introMarkers 5s 3s infinite linear);
+    .opacity(0);
+  }
+}
+
+// all brand marker color generator
+.intro-marker_colorClasses(@i:1) when(@i <= length(@array_brand)) {
+    @brand-name: extract(extract(@array_brand, @i),1);
+    @brand-color: e("brand-@{brand-name}");
+      .intro-marker.@{brand-name} {
+        background: @@brand-color;
+        &.on:after {
+            border: 1px solid @@brand-color;
+            background: -webkit-radial-gradient(center center,farthest-side circle,rgba(red(@@brand-color), green(@@brand-color), blue(@@brand-color),0) 70%,@@brand-color 100%);
+            background: -moz-radial-gradient(center center,farthest-side circle,rgba(red(@@brand-color), green(@@brand-color), blue(@@brand-color),0) 70%,@@brand-color 100%);
+            background: -o-radial-gradient(center center,farthest-side circle,rgba(red(@@brand-color), green(@@brand-color), blue(@@brand-color),0) 70%,@@brand-color 100%);
+            background: radial-gradient(center center,farthest-side circle,rgba(red(@@brand-color), green(@@brand-color), blue(@@brand-color),0) 70%,@@brand-color 100%);
+          }
+      }
+    .intro-marker_colorClasses((@i + 1));
+}
+.intro-marker_colorClasses();
+
+@-webkit-keyframes introMarkers {.mixi-frames;}
+@-moz-keyframes introMarkers {.mixi-frames;}
+@-ms-keyframes introMarkers {.mixi-frames;}
+@-o-keyframes introMarkers {.mixi-frames;}
+@keyframes introMarkers {.mixi-frames;}
+
+.mixi-frames () {
+  5%   {.opacity(.6);}
+  27%  {.scale(2.3);.opacity(0);}
+  100% {.opacity(0);}
+}
+
+// Footer
+footer .layer {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  bottom: 0;
+  width: 1000%;
+}
+
+footer .font-sans {
+  position: relative;
+  z-index: 1;
+  color: inherit;
+}
+
+footer ul {
+  margin: 55px 0;
+  > li {
+    margin-right: 25px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 981px) {
+  footer ul {
+    margin: 45px 0;
+  }
+}
+@media (max-width: 767px) {
+  footer ul {
+    text-align: center;
+  }
+  footer ul li {
+    display: block !important;
+    margin: 5px 0;
+  }
+}
+
+// hover >> arrow
+.hover {
+  .fa-long-arrow-right,
+  .fa-long-arrow-left {
+    position: relative;
+    left: 0;
+    .transition(left 0.2s linear 0s);
+  }
+}
+.hover:hover {
+  .fa-long-arrow-right {
+    left: 8px;
+  }
+  .fa-long-arrow-left {
+    left: -8px;
+  }
+}
+
+// profile
+.profile {
+  position: relative;
+  width: 100%;
+  height: 599px;
+  margin-top: 95px;
+  left: 0;
+  background: no-repeat top center;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .profile {
+    height: 350px;
+  }
+}
+
+.prev, .next {
+  top: 259px;
+  z-index: 100;
+  transition: all 0.25s ease 0s;
+}
+
+.prev {
+  border-radius: 0 3px 3px 0;
+  left: -130px;
+  &:hover {
+    left: 0px;
+    color: @brand-white;
+  }
+}
+
+.next {
+  border-radius: 3px 0 0 3px;
+  right: -130px;
+  &:hover {
+    right: 0px;
+    color: @brand-white;
+  }
+}
+
+@media (max-width: 981px) {
+  .prev:hover {
+    left: -70px !important;
+  }
+  .next:hover {
+    right: -70px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .social-links {
+    border-top: none;
+    text-align: left;
+    > a {
+     display: inline-block;
+     margin-right: 15px;
+    }
+  }
+}
+
+.bamboo {
+  width: 2px;
+  background-color: @brand-primary;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  top: 0;
+  bottom: 0;
+}
+
+@media (max-width: 1024px) {
+  .bamboo {
+    display: none;
+  }
+}
+
+
+// Work
+.case-study {
+  .overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(red(@brand-white), green(@brand-white), blue(@brand-white),0.87);
+    color: @brand-primary;
+    visibility: hidden;
+    opacity: 0;
+    border: 1px solid @brand-primary;
+    .transition(all 0.3s ease 0s);
+    .v-center {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 50%;
+      .translate(0%, -50%);
+
+      // text effect
+      .project,
+      .trigger {
+        position:relative;
+        opacity: 0;
+        .transition(all 0.35s ease 0s);
+      }
+      .project {
+        top: -20px;
+      }
+      .trigger {
+        bottom: -20px;
+      }
+    }
+
+  }
+  &:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+    .v-center {
+      .project,
+      .trigger {
+        opacity: 1;
+        .transition(all 0.5s ease 0s);
+      }
+      .project {
+        top: 0;
+      }
+      .trigger {
+        bottom: 0;
+      }
+    }
+  }
+}
+
+// Shots
+.shots {
+  overflow: hidden;
+  .bottom {
+    opacity: 0;
+    #gradient > .vertical(rgba(40,50,60,0), rgba(40,50,60,0.5), 10%, 100%);
+    color: @brand-white;
+    .transition(all 0.5s ease 0s);
+    .days {
+      position: relative;
+      left: -30px;
+      opacity: 0;
+      .transition(all 0.35s ease 0s);
+    }
+  }
+  &:hover {
+    .bottom {
+      opacity: 1;
+      .days {
+        left: 0;
+        opacity: 1;
+        .transition(all 0.5s ease 0s);
+      }
+    }
+  }
+}
+
+// - Social hover
+@facebook:   #3B579D;
+@twitter:    #2CAAE1;
+@dribbble:   #EB4C89;
+@github:     #333333;
+@flickr:     #0063dc;
+
+.fa{
+  .transition(all 0.5s ease 0s);
+}
+
+.fa-facebook {
+  &:hover {
+    color: @facebook
+  }
+}
+
+.fa-twitter {
+  &:hover {
+    color: @twitter
+  }
+}
+
+.fa-dribbble {
+  &:hover {
+    color: @dribbble
+  }
+}
+
+.fa-github {
+  &:hover {
+    color: @github
+  }
+}
+
+.fa-flickr {
+  &:hover {
+    color: @flickr
+  }
+}
+
+// - Post
+.post-content {
+  > p {
+    margin-bottom: 32px;
+    img {
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      &:last-child {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+// -
+.showdown-container {
+  position: relative;
+  display: block;
+  padding: 240px 0;
+  z-index: 2;
+  .show-zero {
+    width: 100%;
+    top: 0;
+    left: 2.5em;
+  }
+  .show-one {
+    width: 47%;
+    top: 14.125em;
+    bottom: auto;
+    left: auto;
+    right: 22.06em;
+  }
+  .show-two {
+    left: auto;
+    right: 0;
+    width: 22.0625em;
+    top: 16.65em;
+  }
+}
+
+.showcircle-container {
+  position: relative;
+  display: block;
+  padding: 240px 0;
+  z-index: 2;
+  .show-zero {
+    width: 100%;
+    top: 0;
+    left: 2.5em;
+  }
+  .show-one {
+    width: 47%;
+    top: auto;
+    bottom: 18.65em;
+    left: auto;
+    right: 20.06em;
+  }
+  .show-two {
+    left: 3.09em;
+    width: 40%;
+    top: 20.65em;
+  }
+}

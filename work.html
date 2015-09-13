@@ -1,0 +1,112 @@
+---
+layout: default
+title: Work
+permalink: /work/
+weight : 2
+---
+
+<section class="bg-white p-v-xxl">
+  <div class="container">
+    <div class="row m-t-lg m-b-xxl p-t-xxl">
+      <div class="col-sm-12 m-b-xl">
+        <h1>Case Studies</h1>
+        <p class="">Panic stuff all over the world. Here is some!</p>
+        <div class="line-xl w-xs b-b b-2x b-primary"></div>
+      </div>
+
+  {% assign sorted_work = site.categories.work %}
+  {% for post in sorted_work %}
+    {% if forloop.index0 == 0 %}
+      <div class="col-sm-12 m-b-xl">
+      {% else %}
+      <div class="col-sm-6 m-b-xl">
+    {% endif %}
+        <div class="case-study pos-rlt">
+          <a href="{{ post.url }}">
+          {% if forloop.index0 == 0 %}
+            <img class="img-full b" src="{{ site.baseurl }}/imgs{{ post.url }}cover.{{ post.cover }}" />
+            {% else %}
+            <img class="img-full b" src="{{ site.baseurl }}/imgs{{ post.url }}thumbnail.{{ post.thumb }}" />
+          {% endif %}
+            <span class="overlay text-center">
+              <div class="v-center">
+                <h1 class="project font-thin">{{ post.title }}</h1>
+                <div class="line m-t-xl w-xxs b-b b-2x b-primary m-auto"></div>
+                <p class="trigger font-sans text-xl font-thin">{{ post.service }}</p>
+              </div>
+            </span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="bg-light p-v-xxl">
+  <div class="container">
+    <div class="row m-v-xxl">
+      <div class="col-sm-8 col-sm-offset-2 m-b-xl text-center">
+        <p class="text-xxl font-normal">
+					Panic stuff all over the world. <br>
+					Here is some...
+				</p>
+      </div>
+    </div>
+
+      {% assign postsPerPage = 6 %}
+      {% assign sorted_shot = site.categories.shot %}
+
+      {% assign numPages = sorted_shot | size | divided_by: postsPerPage %}
+
+      {% if sorted_shot.size | modulo: postsPerPage > 0 %}
+          {% assign numPages = numPages | plus: 1 %}
+      {% endif %}
+      <!-- <p>Total pages: {{ numPages }}</p> -->
+      {% assign endIndex = numPages | minus: 1 %}
+
+      {% for pageNum in (0..endIndex) %}
+      {% assign offset = pageNum | times: postsPerPage %}
+      <div class="row">
+        {% if pageNum == 0 %}
+        <div id="more-{{ pageNum }}">
+        {% else %}
+        <div class="hide" id="more-{{ pageNum }}">
+        {% endif %}
+          {% assign posts = sorted_shot %}
+          {% for post in posts limit: postsPerPage offset: offset %}
+          <div class="col-sm-4 m-b-xl">
+            <div class="shots item">
+              <div class="bottom w-full wrapper-sm p-t-xl text-right">
+                <p class="days m-b-none font-semi-bold p-h-xs"><i class="fa fa-long-arrow-right m-l-xxs text-primary"></i> {{ post.date  | date: "%b %-d, %Y" }}</p>
+              </div>
+              <img class="img-full b" src="/imgs{{ post.url | append: '@' | remove: '/@' }}.{{ post.img }}">
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+    <p class="clear m-t-md">
+      <a id="more_shots" class="text-lg font-bold hover" href="">Still Hungry? Wow! There is more <i class="fa fa-long-arrow-right m-l-xxs"></i></a>
+    </p>
+  </div>
+</section>
+
+<section class="p-v-xxl img-bg img-white dk" style="background-image: url({{ site.baseurl }}/imgs/c2.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center p-v-xxl">
+        <div class="thumb-xl img-circle">
+					<img src="http://www.gravatar.com/avatar/{{ site.gravatar }}?s=330">
+				</div>
+        <p class="h2 l-h-3x font-normal m-v-xl">
+          Content is King. Dear Client, please give me Content, I will give you a Kingdom.
+        </p>
+        <p class="text-lg m-b-xl">
+          — Zafree, <small>Cute Cat</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
