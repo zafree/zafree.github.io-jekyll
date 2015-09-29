@@ -56,27 +56,15 @@ weight : 1
 						<span class="clear text-ellipsis font-bold">Job History</span>
 				</div>
 				<div class="list-group list-group-lg b-nones">
-					<a herf="" class="list-group-item clearfix">
+          {% for post in site.categories.jobs limit:3 %}
+          <div class="list-group-item clearfix">
 						<span class="clear">
-            		<small class="pull-right text-muted">10 months &amp; run</small>
-								<small class="clear text-muted text-ellipsis">13 November 2014 - Continue</small>
-              	<span class="clear font-bold m-t-sm">Creative Lead at Incepsys Ltd</span>
+            		<small class="pull-right text-muted">{{ post.status }}</small>
+								<small class="clear text-muted text-ellipsis">{{ post.date | date: "%b %-d, %Y" }} {% if post.farewell %} - {{ post.farewell | date: "%b %-d, %Y" }} {% else %} - Continue {% endif %}</small>
+              	<span class="clear font-bold m-t-sm">{{ post.position }} at {{ post.company }}</span>
           	</span>
-		      </a>
-					<a herf="" class="list-group-item clearfix">
-						<span class="clear">
-            		<small class="pull-right text-muted">9 months</small>
-								<small class="clear text-muted text-ellipsis">01 January 2014 - 30 September 2014</small>
-              	<span class="clear text-ellipsis font-bold m-t-sm">Front End Web Developer at BTCIT</span>
-          	</span>
-		      </a>
-					<a herf="" class="list-group-item clearfix">
-						<span class="clear">
-            		<small class="pull-right text-muted">2.4 years &amp; run</small>
-								<small class="clear text-muted text-ellipsis">13 May 2013 - Continue</small>
-              	<span class="clear text-ellipsis font-bold m-t-sm">Team Member at Notekhata.com</span>
-          	</span>
-		      </a>
+		      </div>
+          {% endfor %}
 				</div>
         <!--
         <p class="text-right text-sm font-bold">
