@@ -4299,6 +4299,9 @@ footer ul > li:last-child {
 .fa-flickr:hover {
   color: #0063dc;
 }
+.fa-codepen:hover {
+  color: #000000;
+}
 .post-content > p {
   margin-bottom: 32px;
 }
