@@ -4360,3 +4360,45 @@ footer ul > li:last-child {
   width: 40%;
   top: 20.65em;
 }
+.jobs > .ruler > .line {
+  padding-top: 17px;
+  margin: 0;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+.jobs > .ruler:first-child > .line:first-child {
+  border-left: 1px solid transparent;
+}
+.jobs > .ruler:nth-last-child(2) > .line {
+  padding-top: 18px;
+  border-bottom: 0px solid transparent;
+}
+.jobs > .ruler:nth-last-child(2) > .line:first-child {
+  padding-top: 17px;
+  border-bottom: 1px solid #000000;
+}
+.jobs > .experience > .year {
+  position: absolute;
+  left: -73px;
+  top: -6px;
+  font-size: 15px;
+  width: 50px;
+  text-align: right;
+}
+.white-box {
+  background-color: #ffffff;
+  -webkit-box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.05);
+}
+.white-box::before {
+  content: '';
+  position: absolute;
+  background-color: #ffffff;
+  left: -1000%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.resume-links .fa:hover {
+  color: #000000 !important;
+}

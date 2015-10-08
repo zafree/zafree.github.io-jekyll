@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Discover
-permalink: /discover/
 weight : 1
 ---
 
@@ -61,7 +60,7 @@ weight : 1
 						<span class="clear">
             		<small class="pull-right text-muted">{{ post.status }}</small>
 								<small class="clear text-muted text-ellipsis">{{ post.date | date: "%b %-d, %Y" }} {% if post.farewell %} - {{ post.farewell | date: "%b %-d, %Y" }} {% else %} - Continue {% endif %}</small>
-              	<span class="clear font-bold m-t-sm">{{ post.position }} at {{ post.company }}</span>
+              	<h6 class="clear font-bold m-t-sm m-b-none">{{ post.position }} <a class="text-sm" href="{{ post.website }}" target="_blank">at {{ post.company }}</a></h6>
           	</span>
 		      </div>
           {% endfor %}
@@ -94,7 +93,9 @@ weight : 1
 				</p>
 			</div>
 		</div>
-
+    <p class="text-center font-bold m-b-xxl">
+      <a class="btn btn-lg btn-primary" href="{{ site.baseurl }}/resume">My Resume</a>
+    </p>
 	</div>
 </section>
 

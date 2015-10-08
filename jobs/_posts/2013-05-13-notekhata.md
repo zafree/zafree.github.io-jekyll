@@ -1,5 +1,7 @@
 ---
-company:    Notekhata.com
+company:    Notekhata
+website:    http://notekhata.com/
+
 position:   Team Member
 
 farewell:   

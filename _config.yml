@@ -1,9 +1,10 @@
 # Site settings
 title:              Zafree
+author:             Zafree
 email:              zafree@live.com
 
-author:             Zafree
-fullname:           Foysal Zafree
+firstname:          Foysal
+lastname:           Zafree
 gravatar:           b7e525f3c99cf35dbe137a62de076a44
 
 facebook_username:  zafree
