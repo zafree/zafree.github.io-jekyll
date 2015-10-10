@@ -2,6 +2,12 @@
  * Zafree v1.0.0 (http://zafree.github.io)
  * Copyright 2014-2015 Zafree
  */
+::-moz-selection {
+  background: #f4ef79;
+}
+::selection {
+  background: #f4ef79;
+}
 html {
   background-color: #ffffff;
 }
