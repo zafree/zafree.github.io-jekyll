@@ -642,7 +642,33 @@ http://www.gnu.org/licenses/gpl.html
 };
 
 // execute above function
-initPhotoSwipeFromDOM('.swipe-gallery');;/*!
+initPhotoSwipeFromDOM('.swipe-gallery');;+function ($) {
+  'use strict';
+
+  // create ruler HTML for the DOM
+  var ruler    = '<div class="col-md-3 ruler">'+
+                    '<div class="line w-full"></div>'+
+                    '<div class="line w-3x"></div>'+
+                    '<div class="line w-xxs"></div>'+
+                    '<div class="line w-3x"></div>'+
+                    '<div class="line w-3x"></div>'+
+                    '<div class="line w-xs"></div>'+
+                    '<div class="line w-3x"></div>'+
+                    '<div class="line w-3x"></div>'+
+                    '<div class="line w-xxs"></div>'+
+                    '<div class="line w-3x"></div>'+
+                    '<div class="line w-3x"></div>'+
+                 '</div>';
+
+  var clearfix = '<div class="clearfix"></div>';
+
+  $(".experience").each(function() {
+    // set HTML to the DOM
+    $(this).before($(ruler)); $(this).after($(clearfix));
+  });
+
+}(jQuery);
+;/*!
  * SVG Separator v1.0.0 (http://zafree.github.io/bootaide/js/svg.separator.js)
  * Copyright 2014-2015 Zafree 
  * Licensed under MIT 
