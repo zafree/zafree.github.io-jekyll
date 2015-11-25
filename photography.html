@@ -1,0 +1,164 @@
+---
+layout: photo-grid
+title: Photography
+weight : 5
+---
+
+
+<section class="bg-white p-v-xxl">
+  <div class="container">
+    <div class="row m-t-lg m-b-xl p-t-xxl">
+      <div class="col-sm-12">
+        <h1>Capture Life</h1>
+        <p class="">আমি যখন তখন ছবি তুলি। ভাল খারাপের বালাই এখানে নেই।</p>
+        <div class="line-xl w-xs b-b b-2x b-primary"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--photos -->
+  <div class="container">
+    <div class="row img-grid">
+      <div class="swipe-gallery clear">
+        {% for post in site.categories.photography %}
+        <figure itemprop="associatedMedia" itemscope itemtype="">
+          <a class="" href="/imgs/photography/{{ post.title }}.jpg" itemprop="" data-size="{{ post.size }}">
+            <div class="img-item">
+              <img src="/imgs/photography/{{ post.title }}-thumb.jpg" itemprop="thumbnail" alt="{{ post.caption }}" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">{{ post.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+
+        <!--
+        <figure itemprop="associatedMedia" itemscope itemtype="">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c1.jpg" itemprop="contentUrl" data-size="600x600">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c1-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c2.jpg" itemprop="contentUrl" data-size="600x600">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c2-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c3.jpg" itemprop="contentUrl" data-size="600x600">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c3-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c4.jpg" itemprop="contentUrl" data-size="1600x900">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c4-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c5.jpg" itemprop="contentUrl" data-size="1600x900">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c5-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c6.jpg" itemprop="contentUrl" data-size="1600x900">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c6-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a class="" href="{{ site.baseurl }}/imgs/photography/c7.jpg" itemprop="contentUrl" data-size="1600x700">
+            <div class="img-item">
+              <img src="{{ site.baseurl }}/imgs/photography/c7-thumb.jpg" itemprop="thumbnail" alt="Image description" />
+            </div>
+          </a>
+          <figcaption itemprop="caption description">Caption 0</figcaption>
+        </figure>-->
+      </div>
+    </div>
+  </div>
+  <!--/ photos -->
+
+</section>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+</div>
+<!--/ -->

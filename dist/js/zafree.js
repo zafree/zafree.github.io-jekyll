@@ -409,7 +409,11 @@ http://www.gnu.org/licenses/gpl.html
 		update();
 	};
 })(jQuery);
-;$(document).ready(function(){
+;(function(l){function u(d,b,f){var m=0,e=[];f=jQuery.makeArray(f||d.querySelectorAll(b.itemSelector));var p=f.length,h=d.getBoundingClientRect();d=Math.floor(h.right-h.left)-parseFloat(l(d).css("padding-left"))-parseFloat(l(d).css("padding-right"));for(var h=[],c,g,n,a=0;a<p;++a)(c=f[a].getElementsByTagName("img")[0])?((g=parseInt(c.getAttribute("width")))||c.setAttribute("width",g=c.offsetWidth),(n=parseInt(c.getAttribute("height")))||c.setAttribute("height",n=c.offsetHeight),h[a]={width:g,height:n}):
+(f.splice(a,1),--a,--p);p=f.length;for(c=0;c<p;++c){f[c].classList?(f[c].classList.remove(b.firstItemClass),f[c].classList.remove(b.lastRowClass)):f[c].className=f[c].className.replace(new RegExp("(^|\\b)"+b.firstItemClass+"|"+b.lastRowClass+"(\\b|$)","gi")," ");m+=h[c].width;e.push(f[c]);if(c===p-1)for(a=0;a<e.length;a++)0===a&&(e[a].className+=" "+b.lastRowClass),e[a].style.cssText="width: "+h[c+parseInt(a)-e.length+1].width+"px;height: "+h[c+parseInt(a)-e.length+1].height+"px;margin-right:"+(a<
+e.length-1?b.minMargin+"px":0);if(m+b.maxMargin*(e.length-1)>d){g=m+b.maxMargin*(e.length-1)-d;a=e.length;(b.maxMargin-b.minMargin)*(a-1)<g?(n=b.minMargin,g-=(b.maxMargin-b.minMargin)*(a-1)):(n=b.maxMargin-g/(a-1),g=0);for(var t,q=0,a=0;a<e.length;a++){t=e[a];var r=h[c+parseInt(a)-e.length+1].width,k=r-r/m*g,r=Math.round(h[c+parseInt(a)-e.length+1].height*(k/r));.5<=q+1-k%1?(q-=k%1,k=Math.floor(k)):(q+=1-k%1,k=Math.ceil(k));t.style.cssText="width: "+k+"px;height: "+r+"px;margin-right: "+(a<e.length-
+1?n:0)+"px";0===a&&(t.className+=" "+b.firstItemClass)}e=[];m=0}}}l.fn.rowGrid=function(d){return this.each(function(){$this=l(this);if("appended"===d){d=$this.data("grid-options");var b=$this.children("."+d.lastRowClass),b=b.nextAll(d.itemSelector).add(b);u(this,d,b)}else if(d=l.extend({},l.fn.rowGrid.defaults,d),$this.data("grid-options",d),u(this,d),d.resize)l(window).on("resize.rowGrid",{container:this},function(b){u(b.data.container,d)})})};l.fn.rowGrid.defaults={minMargin:null,maxMargin:null,
+resize:!0,lastRowClass:"last-row",firstItemClass:null}})(jQuery);;$(document).ready(function(){
 
   // get total more-*
   var t = $('div[id^="more-"]').length;
@@ -642,7 +646,211 @@ http://www.gnu.org/licenses/gpl.html
 };
 
 // execute above function
-initPhotoSwipeFromDOM('.swipe-gallery');;+function ($) {
+initPhotoSwipeFromDOM('.swipe-gallery');;var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+	// parse slide data (url, title, size ...) from DOM elements
+	// (children of gallerySelector)
+	var parseThumbnailElements = function(el) {
+	    var thumbElements = el.childNodes,
+	        numNodes = thumbElements.length,
+	        items = [],
+	        figureEl,
+	        childElements,
+	        linkEl,
+	        size,
+	        item;
+
+	    for(var i = 0; i < numNodes; i++) {
+
+
+	        figureEl = thumbElements[i]; // <figure> element
+
+	        // include only element nodes
+	        if(figureEl.nodeType !== 1) {
+				continue;
+	        }
+
+			linkEl = figureEl.children[0]; // <a> element
+
+	        size = linkEl.getAttribute('data-size').split('x');
+
+	        // create slide object
+	        item = {
+				src: linkEl.getAttribute('href'),
+				w: parseInt(size[0], 10),
+				h: parseInt(size[1], 10)
+	        };
+
+
+
+	        if(figureEl.children.length > 1) {
+	        	// <figcaption> content
+	          	item.title = figureEl.children[1].innerHTML;
+	        }
+
+	        if(linkEl.children.length > 0) {
+	        	// <img> thumbnail element, retrieving thumbnail url
+				item.msrc = linkEl.children[0].getAttribute('src');
+	        }
+
+			item.el = figureEl; // save link to element for getThumbBoundsFn
+	        items.push(item);
+	    }
+
+	    return items;
+	};
+
+	// find nearest parent element
+	var closest = function closest(el, fn) {
+	    return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+	};
+
+	// triggers when user clicks on thumbnail
+	var onThumbnailsClick = function(e) {
+	    e = e || window.event;
+	    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+	    var eTarget = e.target || e.srcElement;
+
+	    var clickedListItem = closest(eTarget, function(el) {
+	        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+	    });
+
+	    if(!clickedListItem) {
+	        return;
+	    }
+
+
+	    // find index of clicked item
+	    var clickedGallery = clickedListItem.parentNode,
+	    	childNodes = clickedListItem.parentNode.childNodes,
+	        numChildNodes = childNodes.length,
+	        nodeIndex = 0,
+	        index;
+
+	    for (var i = 0; i < numChildNodes; i++) {
+	        if(childNodes[i].nodeType !== 1) {
+	            continue;
+	        }
+
+	        if(childNodes[i] === clickedListItem) {
+	            index = nodeIndex;
+	            break;
+	        }
+	        nodeIndex++;
+	    }
+
+
+
+	    if(index >= 0) {
+	        openPhotoSwipe( index, clickedGallery );
+	    }
+	    return false;
+	};
+
+	// parse picture index and gallery index from URL (#&pid=1&gid=2)
+	var photoswipeParseHash = function() {
+		var hash = window.location.hash.substring(1),
+	    params = {};
+
+	    if(hash.length < 5) {
+	        return params;
+	    }
+
+	    var vars = hash.split('&');
+	    for (var i = 0; i < vars.length; i++) {
+	        if(!vars[i]) {
+	            continue;
+	        }
+	        var pair = vars[i].split('=');
+	        if(pair.length < 2) {
+	            continue;
+	        }
+	        params[pair[0]] = pair[1];
+	    }
+
+	    if(params.gid) {
+	    	params.gid = parseInt(params.gid, 10);
+	    }
+
+	    if(!params.hasOwnProperty('pid')) {
+	        return params;
+	    }
+	    params.pid = parseInt(params.pid, 10);
+	    return params;
+	};
+
+	var openPhotoSwipe = function(index, galleryElement, disableAnimation) {
+	    var pswpElement = document.querySelectorAll('.pswp')[0],
+	        gallery,
+	        options,
+	        items;
+
+		items = parseThumbnailElements(galleryElement);
+
+	    // define options (if needed)
+	    options = {
+	        index: index,
+
+			// define gallery index (for URL)
+	        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+	        getThumbBoundsFn: function(index) {
+	            // See Options -> getThumbBoundsFn section of docs for more info
+	            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+	                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+	                rect = thumbnail.getBoundingClientRect();
+
+	            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+	        },
+
+	        //if need photo: author name
+	        /*addCaptionHTMLFn: function(item, captionEl, isFake) {
+				if(!item.title) {
+					captionEl.children[0].innerText = '';
+					return false;
+				}
+				captionEl.children[0].innerHTML = item.title +  '<br/><small>Photo: ' + item.author + '</small>';
+				return true;
+	        },*/
+
+	        // history & focus options are disabled on CodePen
+           	// remove these lines in real life:
+		   history: false,
+		   focus: false
+
+        //,
+      //  showHideOpacity:true
+
+	    };
+
+	    if(disableAnimation) {
+	        options.showAnimationDuration = 0;
+	    }
+
+	    // Pass data to PhotoSwipe and initialize it
+	    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+	    gallery.init();
+	};
+
+	// loop through all gallery elements and bind events
+	var galleryElements = document.querySelectorAll( gallerySelector );
+
+	for(var i = 0, l = galleryElements.length; i < l; i++) {
+		galleryElements[i].setAttribute('data-pswp-uid', i+1);
+		galleryElements[i].onclick = onThumbnailsClick;
+	}
+
+	// Parse URL and open gallery if it contains #&pid=3&gid=1
+	var hashData = photoswipeParseHash();
+	if(hashData.pid > 0 && hashData.gid > 0) {
+		openPhotoSwipe( hashData.pid - 1 ,  galleryElements[ hashData.gid - 1 ], true );
+	}
+};
+
+// execute above function
+initPhotoSwipeFromDOM('.swipe-gallery');
+;+function ($) {
   'use strict';
 
   // create ruler HTML for the DOM
@@ -752,6 +960,16 @@ $(document).ready(function() {
 	}); 
 
 });;$(document).ready(function() {
+
+	$(".img-grid").rowGrid({
+	    itemSelector: ".img-item",
+	    minMargin: 1,
+	    maxMargin: 2,
+	    resize: true,
+	    lastRowClass: "last-row",
+	    firstItemClass: "first-item"
+	});
+	
 	//scrollTo
 	$('a.scrollto').click(function(e) {
 		$('html,body').scrollTo(this.hash, this.hash, {

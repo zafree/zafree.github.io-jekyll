@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/bower_components/inconsolata-webfont/css/inconsolata-webfont.min.css" />
+    <link rel="stylesheet" href="/bower_components/owl-carousel2/dist/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="/bower_components/owl-carousel2/dist/assets/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="{{ "/dist/css/zafree.min.css" | prepend: site.baseurl }}" />
+    <link rel="stylesheet prefetch" href="/bower_components/photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet prefetch" href="/bower_components/photoswipe/dist/default-skin/default-skin.css">
+    <style>.swipe-gallery figcaption{display:none}</style>
+  </head>
+
+  <body>
+		<!--[if lt IE 10]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+    <header class="b-b bg-white navbar-fixed-top headroom">
+      {% include header.html %}
+    </header>
+
+    {{ content }}
+
+    <footer class="b-t b-5x">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 p-v-lg">
+            <p class="text-muted m-b-none">
+              Designed and built with all the love in the world by Zafree <br>
+              Code licensed under MIT &amp; ASYOUWANT
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/jquery.scrollTo/jquery.scrollTo.min.js"></script>
+    <script src="/bower_components/headroom.js/dist/headroom.min.js"></script>
+    <script src="/bower_components/owl-carousel2/dist/owl.carousel.min.js"></script>
+    <script src='/bower_components/photoswipe/dist/photoswipe.min.js'></script>
+    <script src='/bower_components/photoswipe/dist/photoswipe-ui-default.min.js'></script>
+    <script src="/dist/js/zafree.min.js"></script>
+
+
+  </body>
+
+</html>

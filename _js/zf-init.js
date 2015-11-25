@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+	$(".img-grid").rowGrid({
+	    itemSelector: ".img-item",
+	    minMargin: 1,
+	    maxMargin: 2,
+	    resize: true,
+	    lastRowClass: "last-row",
+	    firstItemClass: "first-item"
+	});
+	
 	//scrollTo
 	$('a.scrollto').click(function(e) {
 		$('html,body').scrollTo(this.hash, this.hash, {
