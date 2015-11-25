@@ -23,72 +23,14 @@ weight : 5
       <div class="swipe-gallery clear">
         {% for post in site.categories.photography %}
         <figure itemprop="associatedMedia" itemscope itemtype="">
-          <a class="" href="/imgs/photography/{{ post.title }}.jpg" itemprop="" data-size="{{ post.size }}">
+          <a class="" href="/imgs{{ post.url | append: '@' | remove: '/@' }}.{{ post.photo }}" itemprop="" data-size="{{ post.size }}">
             <div class="img-item">
-              <img src="/imgs/photography/{{ post.title }}-thumb.jpg" itemprop="thumbnail" alt="{{ post.caption }}" />
+              <img src="/imgs{{ post.url | append: '@' | remove: '/@' }}-thumb.{{ post.photo }}" itemprop="thumbnail" alt="{{ post.caption }}" />
             </div>
           </a>
           <figcaption itemprop="caption description">{{ post.caption }}</figcaption>
         </figure>
         {% endfor %}
-
-        <!--
-        <figure itemprop="associatedMedia" itemscope itemtype="">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c1.jpg" itemprop="contentUrl" data-size="600x600">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c1-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c2.jpg" itemprop="contentUrl" data-size="600x600">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c2-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c3.jpg" itemprop="contentUrl" data-size="600x600">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c3-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c4.jpg" itemprop="contentUrl" data-size="1600x900">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c4-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c5.jpg" itemprop="contentUrl" data-size="1600x900">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c5-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c6.jpg" itemprop="contentUrl" data-size="1600x900">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c6-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="" href="{{ site.baseurl }}/imgs/photography/c7.jpg" itemprop="contentUrl" data-size="1600x700">
-            <div class="img-item">
-              <img src="{{ site.baseurl }}/imgs/photography/c7-thumb.jpg" itemprop="thumbnail" alt="Image description" />
-            </div>
-          </a>
-          <figcaption itemprop="caption description">Caption 0</figcaption>
-        </figure>-->
       </div>
     </div>
   </div>
