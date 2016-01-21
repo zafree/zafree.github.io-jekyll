@@ -1,6 +1,6 @@
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
-	// parse slide data (url, title, size ...) from DOM elements 
+	// parse slide data (url, title, size ...) from DOM elements
 	// (children of gallerySelector)
 	var parseThumbnailElements = function(el) {
 	    var thumbElements = el.childNodes,
@@ -17,13 +17,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 	        figureEl = thumbElements[i]; // <figure> element
 
-	        // include only element nodes 
+	        // include only element nodes
 	        if(figureEl.nodeType !== 1) {
 				continue;
 	        }
 
 			linkEl = figureEl.children[0]; // <a> element
-			
+
 	        size = linkEl.getAttribute('data-size').split('x');
 
 	        // create slide object
@@ -33,18 +33,18 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 				h: parseInt(size[1], 10)
 	        };
 
-	        
+
 
 	        if(figureEl.children.length > 1) {
 	        	// <figcaption> content
-	          	item.title = figureEl.children[1].innerHTML; 
+	          	item.title = figureEl.children[1].innerHTML;
 	        }
- 
+
 	        if(linkEl.children.length > 0) {
 	        	// <img> thumbnail element, retrieving thumbnail url
 				item.msrc = linkEl.children[0].getAttribute('src');
-	        } 
-	       
+	        }
+
 			item.el = figureEl; // save link to element for getThumbBoundsFn
 	        items.push(item);
 	    }
@@ -65,7 +65,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 	    var eTarget = e.target || e.srcElement;
 
 	    var clickedListItem = closest(eTarget, function(el) {
-	        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+	        return (el.tagName && el.tagName.toUpperCase() === 'DIV');
 	    });
 
 	    if(!clickedListItem) {
@@ -81,8 +81,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 	        index;
 
 	    for (var i = 0; i < numChildNodes; i++) {
-	        if(childNodes[i].nodeType !== 1) { 
-	            continue; 
+	        if(childNodes[i].nodeType !== 1) {
+	            continue;
 	        }
 
 	        if(childNodes[i] === clickedListItem) {
@@ -114,10 +114,10 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 	        if(!vars[i]) {
 	            continue;
 	        }
-	        var pair = vars[i].split('=');  
+	        var pair = vars[i].split('=');
 	        if(pair.length < 2) {
 	            continue;
-	        }           
+	        }
 	        params[pair[0]] = pair[1];
 	    }
 
@@ -151,11 +151,11 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 	            // See Options -> getThumbBoundsFn section of docs for more info
 	            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
 	                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-	                rect = thumbnail.getBoundingClientRect(); 
+	                rect = thumbnail.getBoundingClientRect();
 
 	            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
 	        },
-	        
+
 	        //if need photo: author name
 	        /*addCaptionHTMLFn: function(item, captionEl, isFake) {
 				if(!item.title) {
@@ -167,10 +167,10 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 	        },*/
 
 	        // history & focus options are disabled on CodePen
-           	// remove these lines in real life: 
+           	// remove these lines in real life:
 		   history: false,
-		   focus: false	
-        
+		   focus: false
+
         //,
       //  showHideOpacity:true
 
