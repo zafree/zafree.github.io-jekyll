@@ -1,11 +1,5 @@
 $(document).ready(function() {
 
-	$(".grid-container").justifiedGallery({
-			rowHeight : 350,
-			lastRow : 'nojustify',
-			margins : 2
-	});
-
 	//scrollTo
 	$('a.scrollto').click(function(e) {
 		$('html,body').scrollTo(this.hash, this.hash, {
@@ -106,5 +100,11 @@ $(document).ready(function() {
 		}
 	});
 	headroom.init();
+
+	$(".grid-container").justifiedGallery({
+			rowHeight : 350,
+			lastRow : 'nojustify',
+			margins : 2
+	});
 
 });
