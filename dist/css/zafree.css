@@ -1,6 +1,6 @@
 /*!
  * Zafree v1.0.0 (http://zafree.github.io)
- * Copyright 2014-2015 Zafree
+ * Copyright 2014-2016 Zafree
  */
 ::-moz-selection {
   background: #f4ef79;
@@ -3841,7 +3841,7 @@ a.text-danger {
   margin-right: 20px;
 }
 .headroom .navbar-nav > li > a {
-  padding: 10px 0;
+  padding: 16px 0 10px;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.2s linear 0s;
   -o-transition: border-bottom 0.2s linear 0s;
@@ -4130,13 +4130,18 @@ footer ul > li:last-child {
 .profile {
   position: relative;
   width: 100%;
-  height: 599px;
-  margin-top: 95px;
+  height: 799px;
+  margin-top: 90px;
   left: 0;
   background: no-repeat top center;
   background-size: cover;
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 1281px) {
+  .profile {
+    height: 599px;
+  }
+}
+@media screen and (max-width: 767px) {
   .profile {
     height: 350px;
   }

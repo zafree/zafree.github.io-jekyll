@@ -1,25 +1,26 @@
 
 <div class="container">
-  <div class="navbar-header">
-    <button class="btn btn-link visible-xs pull-right m-r m-t-sm" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-      <i class="fa fa-bars"></i>
-    </button>
-    <a href="{{ site.baseurl }}/" class="navbar-brand m-t-md"><img src="img/logo.png" class="m-r-sm hide"><span class="font-bold text-xl">{{ site.firstname }} {{ site.lastname }}</span></a>
-
-  </div>
-  <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right font-bold p-v-lg m-t-xxs">
-      <li class="active hide">
-        <a href=".">Home</a>
-      </li>
-      {% assign pages = site.pages | sort:"weight"  %}
-      {% for page in pages %}
-      {% if page.title %}
-      <li>
-        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-      {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+      <div class="navbar-header">
+        <button class="btn btn-link visible-xs pull-right m-r m-t-sm" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a href="{{ site.baseurl }}/" class="navbar-brand font-bold text-xl">
+          <span>{{ site.firstname }} {{ site.lastname }}</span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right font-bold">
+          <li class="active hide">
+            <a href=".">Home</a>
+          </li>
+          {% assign pages = site.pages | sort:"weight"  %}
+          {% for page in pages %}
+          {% if page.title %}
+          <li>
+            <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
