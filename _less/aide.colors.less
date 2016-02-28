@@ -32,7 +32,7 @@
     @brand-color: e("brand-@{brand-name}");
       .bg-@{brand-name} {
         .color-variant(@@brand-color);
-        .font-variant(@@brand-color); 
+        .font-variant(@@brand-color);
       }
     .bg_colorClasses((@i + 1));
 }
@@ -48,7 +48,7 @@
 .text_colorClasses();
 
 
-// Border colors 
+// Border colors
 .border_colorClasses(@i:1) when(@i <= length(@array_brand)) {
     @brand-name: extract(extract(@array_brand, @i),1);
     @brand-color: e("brand-@{brand-name}");
@@ -79,7 +79,7 @@
     @brand-name: extract(extract(@array_brand, @i),1);
     @brand-color: e("brand-@{brand-name}");
       .img-@{brand-name}.img-bg:after {
-        .img-variant(@@brand-color); 
+        .img-variant(@@brand-color);
       }
     .img_colorClasses((@i + 1));
 }
