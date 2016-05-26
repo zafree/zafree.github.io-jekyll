@@ -35,19 +35,19 @@ weight : 4
             <h1 class="text-3x p-b inline">{{ post.title }}</h3>
             <div class="line-xl w-sm b-b b-2x b-primary m-auto clear"></div>
           </a>
-          <div class="l-h-2x">
+          <div class="text-md l-h-3x p-t">
             {{ post.excerpt }}
           </div>
-          <div class="font-sans text-muted m-t-xxl">
+          <div class="text-md text-muted m-t-xxl">
             <div class="inline m-r-xl">
               <a class="text-muted" href="{{site.baseurl}}">
                 <div class="thumb-sm img-circle pull-left">
                   <img src="http://www.gravatar.com/avatar/{{ site.gravatar }}?s=110">
                 </div>
-                <span class="m-l-sm m-t-sm inline">{{ site.author }}</span>
+                <span class="m-l-sm m-t-xs p-v-xxs inline">{{ site.author }}</span>
               </a>
             </div>
-            <div class="small inline">
+            <div class="text-base inline">
               <i class="fa fa-clock-o m-r-xs"></i> {{ post.date | date: "%b %-d, %Y" }}
             </div>
           </div>

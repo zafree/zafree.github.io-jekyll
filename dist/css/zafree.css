@@ -332,6 +332,9 @@ label {
   line-height: 2em;
 }
 .l-h-3x {
+  line-height: 2.3em;
+}
+.l-h-4x {
   line-height: 52px;
 }
 .l-s-0x {
@@ -4314,15 +4317,15 @@ footer ul > li:last-child {
   color: #000000;
 }
 .post-content > p {
-  margin-bottom: 32px;
+  margin-bottom: 42px;
 }
 .post-content > p img {
   width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 .post-content > p img:last-child {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .showdown-container {
   position: relative;
