@@ -52,7 +52,34 @@
 }
 
 .resume-links {
-  .fa:hover {
-    color: @brand-primary !important;
+  a:hover {
+      .fa {
+
+          color: @brand-primary !important;
+      }
   }
+}
+
+.text-muted.hover-info {
+    color: @text-muted;
+    > a {
+        color: @text-muted;
+        &:hover,
+        &:focus {
+            color: @brand-info;
+        }
+    }
+}
+
+.b-black {
+    border-color: #000;
+}
+
+.section {
+    a {
+        &:hover,
+        &:focus {
+            color: @brand-info;
+        }
+    }
 }

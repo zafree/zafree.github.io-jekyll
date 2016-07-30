@@ -4426,6 +4426,23 @@ footer ul > li:last-child {
   right: 0;
   bottom: 0;
 }
-.resume-links .fa:hover {
+.resume-links a:hover .fa {
   color: #000000 !important;
+}
+.text-muted.hover-info {
+  color: #98a5a8;
+}
+.text-muted.hover-info > a {
+  color: #98a5a8;
+}
+.text-muted.hover-info > a:hover,
+.text-muted.hover-info > a:focus {
+  color: #ff4d8c;
+}
+.b-black {
+  border-color: #000;
+}
+.section a:hover,
+.section a:focus {
+  color: #ff4d8c;
 }

@@ -30,6 +30,7 @@
     "jquery.scrollTo": "~2.1.0",
     "owl-carousel2": "*",
     "photoswipe": "~4.0.7",
-    "justifiedGallery": "https://github.com/miromannino/Justified-Gallery.git#~3.6.1"
+    "justifiedGallery": "https://github.com/miromannino/Justified-Gallery.git#~3.6.1",
+    "highlightjs": "^9.4.0"
   }
 }
